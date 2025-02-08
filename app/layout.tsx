@@ -29,6 +29,7 @@ export default function RootLayout({
       <html lang="en">
         <body
           className={`${cn("font--IBM_Plex antialiased",IBM_Plex.variable)} `}>
+          
           {children}
         </body>
       </html>

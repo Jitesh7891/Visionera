@@ -17,7 +17,7 @@ if(!cached){
 }
 
 
-export const connexToDatabase=async()=>{
+export const connectToDatabase=async()=>{
     console.log(MONGODB_URL)
     if(cached.conn)return cached.conn
 

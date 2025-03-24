@@ -48,7 +48,7 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
             width={getImageSize(type, image, "width")}
             height={getImageSize(type, image, "height")}
             src={image?.publicId}
-            alt={image.title}
+            alt={image.title || "Image"}
             sizes={"(max-width: 767px) 100vw, 50vw"}
             placeholder={dataUrl as PlaceholderValue}
             className="transformed-image"
@@ -67,9 +67,9 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
             <div className="transforming-loader">
               <Image 
                 src="/assets/icons/spinner.svg"
+                alt="spinner"
                 width={50}
                 height={50}
-                alt="spinner"
               />
               <p className="text-white/80">Please wait...</p>
             </div>

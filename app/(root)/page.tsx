@@ -1,4 +1,5 @@
 import { Collection } from "@/components/shared/Collection"
+import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation"
 import { navLinks } from "@/constants"
 import { getAllImages } from "@/lib/actions/image.actions"
 import Image from "next/image"

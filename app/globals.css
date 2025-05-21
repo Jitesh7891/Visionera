@@ -326,6 +326,9 @@
   .sidebar-nav_elements {
     @apply hidden w-full flex-col items-start gap-2 md:flex;
   }
+  .sidebar-nav_elements2{
+    @apply hidden w-full flex-col items-start gap-2 md:flex mb-12;
+  }
 
   .sidebar-nav_element {
     @apply flex-center p-16-semibold w-full whitespace-nowrap rounded-full bg-cover  transition-all hover:bg-purple-100 hover:shadow-inner;

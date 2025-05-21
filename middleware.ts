@@ -7,7 +7,7 @@ export default clerkMiddleware(async (auth, req) => {
 
 export const config = {
   matcher: [
-    // Exclude public pages like sign-in and sign-up, in addition to _next and static files.
-    '/((?!_next|api|sign-in|sign-up).*)',
+    // Exclude: _next, api, sign-in, sign-up, and the root path `/`
+    '/((?!^$|^/$|_next|api|sign-in|sign-up).*)',
   ],
 };

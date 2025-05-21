@@ -2,7 +2,7 @@ import Header from '@/components/shared/Header'
 import TransformationForm from '@/components/shared/TransformationForm'
 import { transformationTypes } from '@/constants'
 import { getUserById } from '@/lib/actions/user.actions'
-import { auth } from '@clerk/nextjs/server' 
+import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
@@ -15,17 +15,20 @@ const AddTransformationTypePage = async ({ params: { type } }: SearchParamProps)
   }
 
   const user = await getUserById(userId) // Fetch user data
-  const transformation = transformationTypes[type] // Get the transformation by type
+  // @ts-expect-error: 'type' is dynamically fetched from URL params and narrowed via runtime check
+  const transformation = transformationTypes[type];
+
+
 
   return (
     <>
-      <Header 
-        title={transformation.title} 
-        subtitle={transformation.subTitle} 
+      <Header
+        title={transformation.title}
+        subtitle={transformation.subTitle}
       />
-    
+
       <section className="mt-10 ">
-        <TransformationForm 
+        <TransformationForm
           action="Add"
           userId={user._id}
           type={transformation.type as TransformationTypeKey}

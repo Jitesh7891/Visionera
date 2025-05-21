@@ -7,7 +7,7 @@ import Image from 'next/image'
 import React from 'react'
 
 const TransformedImage = ({ image, type, title, transformationConfig, isTransforming, setIsTransforming, hasDownload = false }: TransformedImageProps) => {
-    
+
   const downloadHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
@@ -27,11 +27,11 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
         </h3>
 
         {hasDownload && (
-          <button 
-            className="download-btn" 
+          <button
+            className="download-btn"
             onClick={downloadHandler}
           >
-            <Image 
+            <Image
               src="/assets/icons/download.svg"
               alt="Download"
               width={24}
@@ -44,7 +44,7 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
 
       {image?.publicId && transformationConfig ? (
         <div className="relative">
-          <CldImage 
+          <CldImage
             width={getImageSize(type, image, "width")}
             height={getImageSize(type, image, "height")}
             src={image?.publicId}
@@ -53,19 +53,26 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
             placeholder={dataUrl as PlaceholderValue}
             className="transformed-image"
             onLoad={() => {
-              setIsTransforming && setIsTransforming(false);
+              if (setIsTransforming) {
+                setIsTransforming(false);
+              }
             }}
+
             onError={() => {
-              debounce(() => {
-                setIsTransforming && setIsTransforming(false);
-              }, 8000)()
+              const fn = debounce(() => {
+                if (setIsTransforming) {
+                  setIsTransforming(false);
+                }
+              }, 8000);
+              fn();
             }}
+
             {...transformationConfig}
           />
 
           {isTransforming && (
             <div className="transforming-loader">
-              <Image 
+              <Image
                 src="/assets/icons/spinner.svg"
                 alt="spinner"
                 width={50}
@@ -75,7 +82,7 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
             </div>
           )}
         </div>
-      ): (
+      ) : (
         <div className="transformed-placeholder">
           Transformed Image
         </div>

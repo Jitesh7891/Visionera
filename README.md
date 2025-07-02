@@ -33,8 +33,8 @@ Visionera is a full-stack AI-powered image transformation platform. Users can re
 ## Installation
 
 ```bash
-git clone https://github.com/your-username/visionera.git
-cd visionera
+git clone https://github.com/Jitesh7891/Visionera
+cd Visionera
 npm install
 npm run dev
 ```

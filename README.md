@@ -38,8 +38,39 @@ cd Visionera
 npm install
 npm run dev
 ```
+## Environment Variables
 
+To run the project locally, you need to configure the following environment variables in your `.env.local` 
 
+**Clerk Authentication**
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` – Public key used by the frontend to authenticate with Clerk.
+- `CLERK_SECRET_KEY` – Secret backend key for verifying Clerk sessions and handling secure operations.
+- `NEXT_PUBLIC_CLERK_SIGN_IN_URL` – Route for user sign-in.
+- `NEXT_PUBLIC_CLERK_SIGN_UP_URL` – Route for user sign-up.
+- `NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL` – Redirect path after successful sign-in.
+- `NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL` – Redirect path after successful sign-up.
+
+**Cloudinary (Image Transformations)**
+- `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` – Your Cloudinary cloud name, used in both frontend and backend.
+- `CLOUDINARY_API_KEY` – Cloudinary API key (used on the backend).
+- `CLOUDINARY_API_SECRET` – Secret API key for secure image transformations.
+
+**MongoDB (Database)**
+- `MONGODB_URL` – MongoDB connection string for storing user and image data.
+
+**Stripe (Payments)**
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` – Stripe public key for rendering the payment UI.
+- `STRIPE_SECRET_KEY` – Secret key used on the backend to process Stripe payments.
+- `STRIPE_WEBHOOK_SECRET` – Secret for verifying Stripe webhook signatures.
+
+**Clerk Webhooks**
+- `WEBHOOK_SECRET` – Clerk webhook secret to validate incoming requests from Clerk.
+
+**Server URL**
+- `NEXT_PUBLIC_SERVER_URL` – The base URL of your deployed site used by the frontend app to hit APIs.
+  - Example: `https://visionera-jade.vercel.app/` (production)
+  - Optional for local development: `http://localhost:3000`
+    
 ## Technologies Used
 
 - **Next.js** – App router architecture for a scalable structure  

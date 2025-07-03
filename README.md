@@ -85,6 +85,8 @@ To run the project locally, you need to configure the following environment vari
 ## Folder Structure
 - `app/(auth)/` – Authentication pages (Clerk)
 - `app/(root)/` – Main pages: home, profile, credits, transformation
+- `app/webhooks/clerk` – Webhooks for Clerk
+- `app/webhooks/stripe` – Webhooks for Stripe
 - `components/shared/` – Shared layout/UI components
 - `components/ui/` – Reusable UI elements
 - `constants/` – Static configuration and transformation metadata
